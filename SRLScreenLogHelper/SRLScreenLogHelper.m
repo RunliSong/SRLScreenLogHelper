@@ -108,8 +108,6 @@ static NSString * _defaultLogMsg = @"当前暂无需要展示的日志";
 }
 
 - (void)removeAndReset{
-    [self.logDataArray removeAllObjects];
-    [self.logTable reloadData];
     [self.containerView removeFromSuperview];
 }
 
@@ -124,6 +122,7 @@ static NSString * _defaultLogMsg = @"当前暂无需要展示的日志";
 
 - (void)updateLogStyle:(id)sender{
     if ([sender isKindOfClass:[UITapGestureRecognizer class]]) {
+        [self.logTable reloadData];
         self.currentLogLabel.hidden = YES;
         self.logTable.hidden = NO;
        
